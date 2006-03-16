@@ -1,0 +1,10 @@
+0.03
+	Get_from(), juggle_list(), etc
+	Hopefully the only release to rely on Getopt::Long
+
+0.02
+	Added DWIM functionality.
+
+0.01
+	First public release.
+
