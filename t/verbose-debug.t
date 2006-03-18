@@ -6,6 +6,8 @@ use warnings;
 use Test::More;
 use IPC::Run qw(run);
 
+my $perl = $^X;
+
 my $dump;
 $ARGV[0] and ($dump = 1);
 
@@ -59,7 +61,7 @@ print Dumper({v => $verbose, d => $debug});
 TEST_CODE
 
 foreach my $arg (@args) {
-	res_check($arg->[1], 'perl', '-e', $test_code, '--', @{$arg->[0]});
+	res_check($arg->[1], $perl, '-e', $test_code, '--', @{$arg->[0]});
 }
 
 exit;

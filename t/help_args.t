@@ -6,6 +6,8 @@ use warnings;
 use Test::More;
 use IPC::Run qw(run);
 
+my $perl = $^X;
+
 my $dump;
 $ARGV[0] and ($dump = 1);
 
@@ -37,7 +39,7 @@ foreach my $args (@help_args) {
 	SKIP: {
 		$exists or skip("cannot find $test file", 3);
 		my ($in, $out, $err);
-		ok(run(['perl', $test, @$args], \$in, \$out, \$err), "$test @$args");
+		ok(run([$perl, $test, @$args], \$in, \$out, \$err), "$test @$args");
 		$dump and print "$out\n";
 		($dump and $err) and warn "$err";
 		ok($err eq '', "no stderr");

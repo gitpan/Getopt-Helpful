@@ -9,6 +9,8 @@ use IPC::Run qw(run);
 use YAML;
 use Data::Dumper;
 
+my $perl = $^X;
+
 my @checks = (
 	# hard-coded defaults check
 	[
@@ -73,7 +75,7 @@ ok((-e $cmd), "$cmd existence") or exit;
 my $num = 0;
 foreach my $check (@checks) {
 	#print "number: $num\n";
-	$check->[1]->($cmd, @{$check->[0]});
+	$check->[1]->($perl, $cmd, @{$check->[0]});
 	$num++;
 }
 

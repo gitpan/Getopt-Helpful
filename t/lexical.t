@@ -11,6 +11,8 @@ $ARGV[0] and ($dump = 1);
 
 use Getopt::Helpful;
 
+my $perl = $^X;
+
 my $test_code = <<'TEST_CODE';
 use warnings;
 use strict;
@@ -67,7 +69,7 @@ plan(tests =>
 
 {
 	my ($in, $out, $err);
-	ok(run([qw(perl -e), $test_code], \$in, \$out, \$err), 'compile') or
+	ok(run([$perl, qw(-e), $test_code], \$in, \$out, \$err), 'compile') or
 		die "test_code does not compile: $err";
 }
 
@@ -75,7 +77,7 @@ foreach my $arg (@args) {
 	my %exp = %{$arg->[1]};
 	my @argv = @{$arg->[0]};
 	$exp{A} ||= join(" ", @argv);
-	res_check(\%exp, 'perl', '-e', $test_code, '--', @argv);
+	res_check(\%exp, $perl, '-e', $test_code, '--', @argv);
 }
 
 exit;

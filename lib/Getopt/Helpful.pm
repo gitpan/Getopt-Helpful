@@ -5,7 +5,7 @@ use warnings;
 use Carp;
 
 use Storable qw(dclone);
-our $VERSION = '0.03';
+our $VERSION = '0.03_01';
 
 =pod
 
