@@ -1,8 +1,7 @@
 ---
 name: Getopt-Helpful
-version: 0.03_01
-author:
-  - 'Eric L. Wilhelm <ewilhelm at cpan dot org>'
+version: 0.04
+author: []
 abstract: Integrated option hash / help messages.
 license: perl
 resources:
@@ -15,8 +14,8 @@ requires:
 provides:
   Getopt::Helpful:
     file: lib/Getopt/Helpful.pm
-    version: 0.03_01
-generated_by: Module::Build version 0.2704
+    version: 0.04
+generated_by: Module::Build version 0.28
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
   version: 1.2
